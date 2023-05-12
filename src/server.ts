@@ -3,9 +3,9 @@ import { AppDataSource } from './data-source'
 
 AppDataSource.initialize()
     .then(() => {
-        console.log('Server is running')
+        console.log("Database is connected")
         app.listen(3000, () => {
-            console.log('Servidor executando')
+            console.log('Server is running')
         })
     })
     .catch((err) => {

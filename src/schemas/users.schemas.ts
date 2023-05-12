@@ -2,12 +2,12 @@ import { z } from "zod";
 
 const userSchema = z.object({
   id: z.number(),
-  name: z.string(),
-  email: z.string().email(),
-  admin: z.boolean(),
-  password: z.string().min(8),
-  createdAt: z.date(),
-  updatedAt: z.date(),
+  name: z.string().max(45),
+  email: z.string().email().max(45),
+  admin: z.boolean().default(false),
+  password: z.string().max(120),
+  createdAt: z.string().nullish(),
+  updatedAt: z.string().nullish(),
   deletedAt: z.string().nullish(),
 });
 

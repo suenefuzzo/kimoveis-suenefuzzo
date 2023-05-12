@@ -22,7 +22,9 @@ const userSchemaResponse = userSchema.omit({
   password: true,
 });
 
-const userSchemaUpdateRequest = userSchemaRequest.partial();
+const userSchemaUpdateRequest = userSchemaRequest.omit({ admin: true }).partial();
+
+const updatedUserSchema = userSchema.omit({ id: true, admin: true }).partial();
 
 const usersSchemaResponse = z.array(userSchemaResponse);
 
@@ -32,4 +34,5 @@ export {
   userSchemaResponse,
   userSchemaUpdateRequest,
   usersSchemaResponse,
+  updatedUserSchema
 };

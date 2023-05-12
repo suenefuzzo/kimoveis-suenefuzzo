@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AppError } from "../error";
 import jwt from "jsonwebtoken";
 
-const ensureTokenIsValid = async (
+const ensureTokenIsValidMiddleware = async (
   request: Request,
   response: Response,
   next: NextFunction
@@ -18,11 +18,11 @@ const ensureTokenIsValid = async (
   jwt.verify(token, process.env.SECRET_KEY!, (error: any, decoded: any) => {
     if (error) throw new AppError(error.message, 401);
 
-    response.locals.id = decoded.sub;
+    response.locals.userId = decoded.sub;
     response.locals.admin = decoded.admin;
 
     return next();
   });
 };
 
-export default ensureTokenIsValid;
+export default ensureTokenIsValidMiddleware;

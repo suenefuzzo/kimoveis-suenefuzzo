@@ -43,8 +43,8 @@ class User {
   @UpdateDateColumn({ type: "date" })
   updatedAt?: string | Date;
 
-  @DeleteDateColumn({ type: "date" })
-  deletedAt: string | Date;
+  @DeleteDateColumn({ type: "date"})
+  deletedAt?: string | Date;
 }
 
 export default User;

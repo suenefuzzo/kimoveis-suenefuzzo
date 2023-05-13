@@ -1,0 +1,22 @@
+import { Router } from "express";
+import { createCategoryController, listCategoriesController } from "../controllers/categories.controller";
+import ensureDataIsValidMiddleware from "../middlewares/ensureValidData.middleware";
+import { categorySchemaRequest } from "../schemas/categories.schemas";
+import checksIfCaategoryNameAlreadyExistsMidlleware from "../middlewares/checksIfCategoryNameAlreadyExists.middleware";
+import checksIfAdminOrOrdinaryUser from "../middlewares/checkIfAdminOrOrdinaryUser.middleware";
+import ensureTokenIsValidMiddleware from "../middlewares/ensureTokenIsValid.middleware";
+
+const categoriesRoutes: Router = Router();
+
+categoriesRoutes.post(
+  "",
+  ensureDataIsValidMiddleware(categorySchemaRequest),
+  ensureTokenIsValidMiddleware,
+  checksIfAdminOrOrdinaryUser,
+  checksIfCaategoryNameAlreadyExistsMidlleware,
+  createCategoryController
+);
+
+categoriesRoutes.get("", listCategoriesController);
+
+export default categoriesRoutes;

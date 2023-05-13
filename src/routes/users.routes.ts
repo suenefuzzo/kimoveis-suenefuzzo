@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createUserController, deleteUserController, listUsersController, updateUserController } from "../controllers/users.controller";
 import ensureDataIsValidMiddleware from "../middlewares/ensureValidData.middleware";
-import { updatedUserSchema, userSchemaRequest, userSchemaUpdateRequest } from "../schemas/users.schemas";
+import { updatedUserSchema, userSchemaRequest } from "../schemas/users.schemas";
 import checksEmailExistsMiddleware from "../middlewares/checksEmailExists.middleware";
 import ensureTokenIsValid from "../middlewares/ensureTokenIsValid.middleware";
 import checksAdminPermission from "../middlewares/checksAdminPermission.middleware";

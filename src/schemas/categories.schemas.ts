@@ -1,14 +1,16 @@
 import { z } from "zod";
 
-const categoriesSchema = z.object({
+const categorySchema = z.object({
     id: z.number(),
     name: z.string()
 });
 
-const categorySchemaRequest = categoriesSchema.omit({
+const categorySchemaRequest = categorySchema.omit({
     id: true
 });
 
-const categoriesSchemaResponse = z.array(categoriesSchema);
+const categorySchemaResponse = categorySchema
 
-export { categoriesSchema, categorySchemaRequest, categoriesSchemaResponse }
+const categoriesSchemaResponse = z.array(categorySchema);
+
+export { categorySchema, categorySchemaRequest, categoriesSchemaResponse }

@@ -4,7 +4,7 @@ import { User } from "../../entities";
 import { AppDataSource } from "../../data-source";
 import { usersSchemaResponse } from "../../schemas/users.schemas";
 
-const listUsersService =async (): Promise<TUserResponse[]> => {
+const listUsersService = async (): Promise<TUserResponse[]> => {
     const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
     const users: User[] | null = await userRepository.find();

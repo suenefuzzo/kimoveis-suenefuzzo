@@ -18,11 +18,15 @@ const realEstateSchemaRequest = realEstateSchema.omit({
     createdAt: true,
     updatedAt: true
 })
+// .extend() de Adress
+
+const realEstateSchemaResponse = realEstateSchema;
 
 const realEstatesSchemaResponse = z.array(realEstateSchema)
 
 export {
     realEstateSchema,
     realEstateSchemaRequest,
+    realEstateSchemaResponse,
     realEstatesSchemaResponse
 }

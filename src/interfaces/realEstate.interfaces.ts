@@ -1,10 +1,11 @@
 import { z } from "zod";
-import { realEstateSchemaRequest, realEstateSchemaResponse, realEstatesSchemaResponse } from "../schemas/realEstate.schema";
+import { manyRealEstatesSchemaResponse, realEstateSchema, realEstateSchemaRequest } from "../schemas/realEstate.schema";
+
 
 type TRealEstateRequest = z.infer<typeof realEstateSchemaRequest>;
 
-type TRealEstateResponse = z.infer<typeof realEstateSchemaResponse>;
+type TRealEstateResponse = z.infer<typeof realEstateSchema>;
 
-type TRealEstatesSchemaResponse = z.infer<typeof realEstatesSchemaResponse>
+type TManyRealEstatesResponse = z.infer<typeof manyRealEstatesSchemaResponse>
 
-export { TRealEstateRequest, TRealEstateResponse, TRealEstatesSchemaResponse }
+export { TRealEstateRequest, TRealEstateResponse, TManyRealEstatesResponse }

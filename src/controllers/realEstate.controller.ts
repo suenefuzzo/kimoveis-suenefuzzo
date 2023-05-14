@@ -1,13 +1,23 @@
-// import { Request, Response } from "express";
-// // import createRealEstateService from "../services/realEstate/createRealEstate.service";
-// import { TRealEstateRequest } from "../interfaces/realEstate.interfaces";
+import { Request, Response } from "express";
+import createRealEstateService from "../services/realEstate/createRealEstate.service";
+import { TManyRealEstatesResponse, TRealEstateRequest } from "../interfaces/realEstate.interfaces";
+import listRealEstateService from "../services/realEstate/listRealEstate.service";
 
-// const createRealEstateController = async (request: Request, response: Response): Promise<Response> => {
-//     const realEstateData: TRealEstateRequest = request.body;
+const createRealEstateController = async (request: Request, response: Response): Promise<Response> => {
+    const realEstateData: TRealEstateRequest = request.body;
 
-//     const newRealEstate = await createRealEstateService(realEstateData)
+    const { foundCategory } = response.locals;
 
-//     return response.status(201).json(newRealEstate);
-// };
+    const newRealEstate = await createRealEstateService(realEstateData, foundCategory)
 
-// export { createRealEstateController }
+
+    return response.status(201).json(newRealEstate);
+};
+
+const listRealEstateController = async (request: Request, response: Response): Promise<Response> => {
+    const listRealEstates: TManyRealEstatesResponse = await listRealEstateService()
+
+    return response.json(listRealEstates)
+};
+
+export { createRealEstateController, listRealEstateController }

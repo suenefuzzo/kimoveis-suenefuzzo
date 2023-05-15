@@ -10,7 +10,6 @@ const createRealEstateController = async (request: Request, response: Response):
 
     const newRealEstate = await createRealEstateService(realEstateData, foundCategory)
 
-
     return response.status(201).json(newRealEstate);
 };
 

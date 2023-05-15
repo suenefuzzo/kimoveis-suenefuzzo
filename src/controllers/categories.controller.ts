@@ -3,8 +3,6 @@ import { TCategoryRequest, TCategoryResponse } from "../interfaces/categories.in
 import createCategoryService from "../services/categories/createCategory.service";
 import listCategoriesService from "../services/categories/listCategories.service";
 import listRealEstatesByCategoryService from "../services/categories/listRealEstatesByCategory.service";
-import { Category } from "../entities";
-
 
 const createCategoryController = async (request: Request, response: Response): Promise<Response> => {
     const categoryData: TCategoryRequest = request.body;

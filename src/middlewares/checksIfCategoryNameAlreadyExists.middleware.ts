@@ -4,7 +4,7 @@ import { Category } from "../entities";
 import { AppDataSource } from "../data-source";
 import { AppError } from "../error";
 
-const checksIfCaategoryNameAlreadyExistsMidlleware = async (request: Request, response: Response, next: NextFunction) => {
+const checksIfCategoryNameAlreadyExistsMidlleware = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     const categoriesRepository: Repository<Category> = AppDataSource.getRepository(Category);
     
     const categoryName: string = request.body.name;
@@ -26,4 +26,4 @@ const checksIfCaategoryNameAlreadyExistsMidlleware = async (request: Request, re
     return next();
 };
 
-export default checksIfCaategoryNameAlreadyExistsMidlleware
+export default checksIfCategoryNameAlreadyExistsMidlleware

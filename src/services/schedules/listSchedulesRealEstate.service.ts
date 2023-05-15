@@ -1,7 +1,6 @@
 import { Repository } from "typeorm";
 import { RealEstate } from "../../entities";
 import { AppDataSource } from "../../data-source";
-// import { TRealEstateScheduleResponse } from "../../interfaces/realEstate.interfaces";
 import { AppError } from "../../error";
 
 const listScheduleRealEstatesService = async (realEstateId: number): Promise<RealEstate> => {

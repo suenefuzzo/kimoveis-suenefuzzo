@@ -2,7 +2,6 @@ import { Repository } from "typeorm";
 import { TRealEstateRequest, TRealEstateResponse } from "../../interfaces/realEstate.interfaces";
 import { Address, Category, RealEstate } from "../../entities";
 import { AppDataSource } from "../../data-source";
-// import { realEstateSchemaResponse } from "../../schemas/realEstate.schema";
 import { AppError } from "../../error";
 
 const createRealEstateService = async (realEstateData: TRealEstateRequest, foundCategory: Category): Promise<TRealEstateResponse> => {
@@ -30,8 +29,6 @@ const createRealEstateService = async (realEstateData: TRealEstateRequest, found
         category: foundCategory
     });
     await realEstateRepository.save(realEstate);
-
-    // const returnRealEstate: TRealEstateResponse = realEstateSchemaResponse.parse(realEstate)
 
     return realEstate;
 };

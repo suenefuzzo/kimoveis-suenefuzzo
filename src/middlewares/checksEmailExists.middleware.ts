@@ -4,7 +4,7 @@ import { AppDataSource } from "../data-source";
 import { User } from "../entities";
 import { AppError } from "../error";
 
-const checksEmailExistsMiddleware = async (request: Request, response: Response, next: NextFunction): Promise<Response | void> => {
+const checksEmailExistsMiddleware = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     const userEmail: string = request.body.email;
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User);

@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express'
-import { ZodTypeAny } from 'zod'
+import { NextFunction, Request, Response } from "express";
+import { ZodTypeAny } from "zod";
 
 const ensureDataIsValidMiddleware =
     (schema: ZodTypeAny) =>

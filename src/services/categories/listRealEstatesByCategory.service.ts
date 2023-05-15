@@ -1,7 +1,6 @@
 import { Repository } from "typeorm";
 import { Category } from "../../entities";
 import { AppDataSource } from "../../data-source";
-import { AppError } from "../../error";
 
 const listRealEstatesByCategoryService = async (categoryId: number): Promise<Category> => {
     const categoriesRepository: Repository<Category> = AppDataSource.getRepository(Category);

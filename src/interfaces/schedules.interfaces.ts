@@ -3,9 +3,7 @@ import { scheduleSchema, scheduleSchemaRequest } from "../schemas/schedules.sche
 import { manyRealEstatesSchemaResponse } from "../schemas/realEstate.schema";
 
 type TSchedulesRequest = z.infer<typeof scheduleSchemaRequest>;
-
 type TScheduleReponse = z.infer<typeof scheduleSchema>;
-
 type TManyScheduleResponse = z.infer<typeof manyRealEstatesSchemaResponse>;
 
 export {

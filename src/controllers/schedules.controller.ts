@@ -3,7 +3,6 @@ import { TSchedulesRequest } from "../interfaces/schedules.interfaces";
 import createSchedulesService from "../services/schedules/createSchedules.service";
 import { RealEstate } from "../entities";
 import listScheduleRealEstatesService from "../services/schedules/listSchedulesRealEstate.service";
-// import { TRealEstateScheduleResponse } from "../interfaces/realEstate.interfaces";
 
 const createScheduleController = async (request: Request, response: Response): Promise<Response> => {
     const schedulesData: TSchedulesRequest = request.body;

@@ -1,8 +1,12 @@
 import { Router } from "express";
-import { createCategoryController, listCategoriesController, listRealEstatesByCategoryController } from "../controllers/categories.controller";
+import {
+  createCategoryController,
+  listCategoriesController,
+  listRealEstatesByCategoryController,
+} from "../controllers/categories.controller";
 import ensureDataIsValidMiddleware from "../middlewares/ensureValidData.middleware";
 import { categorySchemaRequest } from "../schemas/categories.schemas";
-import checksIfCaategoryNameAlreadyExistsMidlleware from "../middlewares/checksIfCategoryNameAlreadyExists.middleware";
+import checksIfCategoryNameAlreadyExistsMidlleware from "../middlewares/checksIfCategoryNameAlreadyExists.middleware";
 import checksIfAdminOrOrdinaryUser from "../middlewares/checkIfAdminOrOrdinaryUser.middleware";
 import ensureTokenIsValidMiddleware from "../middlewares/ensureTokenIsValid.middleware";
 import ensureCategoryExistsMiddleware from "../middlewares/ensureCategoryExists.middleware";
@@ -14,12 +18,16 @@ categoriesRoutes.post(
   ensureDataIsValidMiddleware(categorySchemaRequest),
   ensureTokenIsValidMiddleware,
   checksIfAdminOrOrdinaryUser,
-  checksIfCaategoryNameAlreadyExistsMidlleware,
+  checksIfCategoryNameAlreadyExistsMidlleware,
   createCategoryController
 );
 
 categoriesRoutes.get("", listCategoriesController);
 
-categoriesRoutes.get("/:id/realEstate", ensureCategoryExistsMiddleware, listRealEstatesByCategoryController)
+categoriesRoutes.get(
+  "/:id/realEstate",
+  ensureCategoryExistsMiddleware,
+  listRealEstatesByCategoryController
+);
 
 export default categoriesRoutes;

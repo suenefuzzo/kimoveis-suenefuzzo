@@ -18,7 +18,7 @@ const ensureTokenIsValidMiddleware = async (
   jwt.verify(token, process.env.SECRET_KEY!, (error: any, decoded: any) => {
     if (error) throw new AppError(error.message, 401);
 
-    response.locals.userId = decoded.sub;
+    response.locals.userId = Number(decoded.sub);
     response.locals.admin = decoded.admin;
 
     return next();

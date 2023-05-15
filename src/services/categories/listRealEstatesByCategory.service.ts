@@ -14,12 +14,8 @@ const listRealEstatesByCategoryService = async (categoryId: number): Promise<Cat
             realEstate: true
         }
     })
-
-    if(!realEstatesFound){
-        throw new AppError("Category not found", 404)
-    }
     
-    return realEstatesFound;
+    return realEstatesFound!;
 }
 
 export default listRealEstatesByCategoryService;

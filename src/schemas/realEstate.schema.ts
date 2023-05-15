@@ -22,9 +22,11 @@ const realEstateSchemaRequest = z.object({
 
 const manyRealEstatesSchemaResponse = z.array(realEstateSchema);
 
+const realEstateScheduleSchemaResponse = realEstateSchema.extend({manyRealEstatesSchemaResponse});
+
 export {
   realEstateSchema,
   realEstateSchemaRequest,
-
+  realEstateScheduleSchemaResponse,
   manyRealEstatesSchemaResponse,
 };

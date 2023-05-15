@@ -7,7 +7,7 @@ import { AppError } from "../error";
 const ensureCategoryExistsMiddleware = async (request: Request, response: Response, next: NextFunction): Promise<void> => {
     const categoryRepository: Repository<Category> = AppDataSource.getRepository(Category);
 
-    const categoryId: number = Number(request.body.categoryId)
+    const categoryId: number = Number(request.body.categoryId) || Number(request.params.id);
 
     const category = await categoryRepository.findOne({
         where: {
